@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Pasta;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,9 @@ class PastaController extends Controller
      */
     public function index()
     {
-        //
+        $pastaArray = Pasta::all();
+        return view('pastas.index', compact('pastaArray'));
+
     }
 
     /**
@@ -36,7 +39,9 @@ class PastaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $pasta = Pasta::findOrFail($id);
+        return view('pastas.show', compact('pasta'));
+
     }
 
     /**
