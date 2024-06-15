@@ -23,7 +23,7 @@ class PastaController extends Controller
      */
     public function create()
     {
-        //
+        return view('pastas.create');
     }
 
     /**
@@ -37,9 +37,9 @@ class PastaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Pasta $pasta)
     {
-        $pasta = Pasta::findOrFail($id);
+        // $pasta = Pasta::findOrFail($id);
         return view('pastas.show', compact('pasta'));
 
     }
